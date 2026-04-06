@@ -39,6 +39,8 @@ translator-site/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml  # GitHub Actions 部署配置
+├── .nojekyll           # 禁用 Jekyll 处理
+├── push.bat            # 一键推送脚本
 └── README.md           # 项目说明
 ```
 
@@ -49,6 +51,7 @@ translator-site/
 - 每次推送到 `main` 分支时自动触发部署
 - 也可手动触发（workflow_dispatch）
 - 部署到 GitHub Pages，约1-2分钟生效
+- 使用 `peaceiris/actions-gh-pages` 推送至 `gh-pages` 分支
 
 ## 💻 本地运行
 
