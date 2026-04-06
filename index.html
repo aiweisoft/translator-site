@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译器 | Translator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">
+                <span class="logo-icon">&#x1F310;</span>
+                <span class="logo-text">翻译器 <span class="logo-sub">Translator</span></span>
+            </h1>
+            <button class="theme-toggle" id="themeToggle" title="切换主题">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <!-- Main Translation Area -->
+        <main class="translator">
+            <!-- Language Controls -->
+            <div class="lang-controls">
+                <div class="lang-label" id="sourceLang">English</div>
+                <div class="lang-switch-group">
+                    <button class="swap-btn" id="swapBtn" title="交换语言">
+                        &#x21C4;
+                    </button>
+                </div>
+                <div class="lang-label" id="targetLang">中文</div>
+            </div>
+
+            <!-- Translation Panels -->
+            <div class="panels">
+                <!-- Source Panel -->
+                <div class="panel source-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">输入</span>
+                        <div class="panel-actions">
+                            <span class="char-count" id="charCount">0 / 5000</span>
+                            <button class="action-btn clear-btn" id="clearBtn" title="清空">
+                                &#x2715;
+                            </button>
+                        </div>
+                    </div>
+                    <textarea
+                        class="source-input"
+                        id="sourceInput"
+                        placeholder="输入要翻译的文本...&#10;Enter text to translate..."
+                        maxlength="5000"
+                        spellcheck="false"
+                    ></textarea>
+                    <div class="panel-footer">
+                        <span class="hint" id="autoDetectHint">自动检测语言</span>
+                    </div>
+                </div>
+
+                <!-- Result Panel -->
+                <div class="panel result-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">翻译结果</span>
+                        <div class="panel-actions">
+                            <button class="action-btn copy-btn" id="copyBtn" title="复制">
+                                &#x1F4CB;
+                            </button>
+                        </div>
+                    </div>
+                    <div class="result-area" id="resultArea">
+                        <div class="result-placeholder" id="resultPlaceholder">
+                            <span class="placeholder-icon">&#x1F4DD;</span>
+                            <span class="placeholder-text">翻译结果将显示在这里</span>
+                        </div>
+                        <div class="result-text" id="resultText" style="display:none;"></div>
+                        <div class="result-loading" id="resultLoading" style="display:none;">
+                            <div class="spinner"></div>
+                            <span>翻译中...</span>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <span class="api-status" id="apiStatus"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Translate Button -->
+            <div class="translate-action">
+                <button class="translate-btn" id="translateBtn">
+                    <span class="btn-icon">&#x1F680;</span>
+                    <span class="btn-text">翻译 Translate</span>
+                    <span class="btn-shortcut">Ctrl + Enter</span>
+                </button>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage" style="display:none;">
+                <span class="error-icon">&#x26A0;</span>
+                <span class="error-text" id="errorText"></span>
+                <button class="error-close" id="errorClose">&times;</button>
+            </div>
+        </main>
+
+        <!-- History Section -->
+        <section class="history-section">
+            <div class="history-header" id="historyHeader">
+                <h2 class="history-title">
+                    <span class="history-icon">&#x1F552;</span>
+                    翻译历史 Translation History
+                </h2>
+                <button class="history-toggle" id="historyToggle">
+                    <span class="toggle-icon">&#x25BC;</span>
+                </button>
+            </div>
+            <div class="history-content" id="historyContent" style="display:none;">
+                <div class="history-list" id="historyList">
+                    <div class="history-empty" id="historyEmpty">
+                        <span>暂无翻译记录</span>
+                        <span>No translation history yet</span>
+                    </div>
+                </div>
+                <div class="history-actions">
+                    <button class="clear-history-btn" id="clearHistoryBtn">
+                        清空历史 Clear History
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by MyMemory & LibreTranslate | Built with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
