@@ -15,7 +15,7 @@
 
 ## 🚀 在线访问
 
-访问 [GitHub Pages](https://dyp_2001.github.io/translator-site/) 即可使用。
+访问 👉 **https://aiweisoft.github.io/translator-site/** 即可使用。
 
 ## 🛠️ 技术栈
 
@@ -56,7 +56,7 @@ translator-site/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/dyp_2001/translator-site.git
+git clone https://github.com/aiweisoft/translator-site.git
 
 # 进入目录
 cd translator-site
