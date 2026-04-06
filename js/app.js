@@ -273,6 +273,7 @@ async function translate() {
         // Try MyMemory API first (primary)
         let result = await translateWithMyMemory(text);
         if (result) {
+            hideLoading();
             showResult(result.translatedText, 'MyMemory');
             addToHistory(text, result.translatedText, state.sourceLang, state.targetLang);
             return;
@@ -285,6 +286,7 @@ async function translate() {
         // Fallback to LibreTranslate API
         let result = await translateWithLibreTranslate(text);
         if (result) {
+            hideLoading();
             showResult(result.translatedText, 'LibreTranslate');
             addToHistory(text, result.translatedText, state.sourceLang, state.targetLang);
             return;
